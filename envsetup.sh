@@ -6,7 +6,7 @@ else
     python3 -m venv env
 fi
 
-echo  $PWD
+echo  "$PWD"
 source env/bin/activate
 
 pip3 install -r requirements.txt
