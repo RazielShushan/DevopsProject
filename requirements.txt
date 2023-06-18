@@ -18,3 +18,4 @@ sqlparse==0.4.3
 tomli==2.0.1
 tzdata==2022.7
 Werkzeug==2.2.3
+gunicorn==20.1.0
