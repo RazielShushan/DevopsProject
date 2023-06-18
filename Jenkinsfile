@@ -18,6 +18,7 @@ pipline{
             '''
             sh +x nginx.sh
             ./nginx.sh
+            '''
         }
     }
 }
