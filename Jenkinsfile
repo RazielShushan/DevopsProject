@@ -19,7 +19,7 @@ pipeline{
         }
         stage('Setup NGINX'){
             steps{
-            '''
+            sh '''
             sh +x nginx.sh
             ./nginx.sh
             '''
