@@ -7,11 +7,12 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/var/lib/jenkins/workspace/djnago-cicd/login_system
-ExecStart=/home/sammy/myprojectdir/myprojectenv/bin/gunicorn \
-          --access-logfile - \
+ExecStart=/var/lib/jenkins/workspace/djnago-cicd/bin/gunicorn \
+          --error-logfile /var/lib/jenkins/workspace/django-cicd/logs/error.log \          --access-logfile - \
           --workers 3 \
+          --capture-output --log-level debug \
           --bind unix:/run/gunicorn.sock \
-          myproject.wsgi:application
+          login_system.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
