@@ -1,3 +1,4 @@
 #!/bin/bash
 
-source env/bib/activate
+source env/lib/activate
+cd /var/lib/jenkins/workspace/djnago-cicd/
