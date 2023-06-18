@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source env/lib/activate
+source /env/lib/activate
 
 cd /var/lib/jenkins/workspace/djnago-cicd/login_system
 
