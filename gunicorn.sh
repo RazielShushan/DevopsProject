@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /env/lib/activate
+source /var/lib/jenkins/workspace/django-cicd/env/lib/activate
 
 cd /var/lib/jenkins/workspace/djnago-cicd/login_system
 
