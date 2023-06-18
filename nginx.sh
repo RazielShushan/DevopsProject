@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo cp -rf app.conf /etc/nginx/conf.da
+sudo cp -rf app.conf /etc/nginx/conf.d
 chmod 710 /var/lib/jenkins/workspace/django-cicd
 
 sudo nginx -t 
