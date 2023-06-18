@@ -2,7 +2,7 @@
 
 source /var/lib/jenkins/workspace/django-cicd/env/bin/activate
 
-cd /var/lib/jenkins/workspace/django-cicd/login_system
+cd /var/lib/jenkins/workspace/django-cicd/
 
 python3 manage.py makemigrations
 
