@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import ssl
 from pathlib import Path
 import os
 
@@ -25,20 +24,6 @@ SECRET_KEY = 'django-insecure-!8)7sh84)no#c_rgd26f=_^7@q$horu%b12gn6@3r##-$3cqs%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-""" 
-# Enable TLS 1.2
-ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-ssl_context.load_cert_chain('cert.pem', 'key.pem')
-
-# Pass the SSL context object to the runsslserver command
-RUNSERVERPLUS_SERVER_ADDRESS_PORT = 'localhost:8000'
-RUNSERVERPLUS_SERVER_CERT = ssl_context
-"""
-if not DEBUG:
-    SECURE_SSL_REDIRECT = False
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-# Set the SSL certificate and key paths
 
 
 ALLOWED_HOSTS = ['127.0.0.1']
@@ -99,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'communication_system',
-        'USER': 'devops',
+        'USER': 'root',
         'PASSWORD': '96544',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }
