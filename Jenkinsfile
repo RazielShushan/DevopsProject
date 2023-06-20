@@ -1,8 +1,14 @@
 pipeline{
     agent any
     stages{ 
-        stage('Setup Python Virtual ENV'){
-
+        stage('Build Django docker  and Push to hub'){
+            steps{
+                sh '''
+                    docker-compose up
+                '''
+            }
+        }
+        /** stage('Setup Python Virtual ENV'){
         steps {
             sh '''
             chmod +x envsetup.sh
@@ -24,6 +30,6 @@ pipeline{
             ./nginx.sh
             '''
             }
-        }
+        } **/
     }
 }
