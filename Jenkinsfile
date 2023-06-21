@@ -4,7 +4,8 @@ pipeline{
         stage('Build Django docker  and Push to hub'){
             steps{
                 sh '''
-                    docker-compose up
+                chmod +x docker-compose.sh
+                ./docker-compose.sh
                 '''
             }
         }
