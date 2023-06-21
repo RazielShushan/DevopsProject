@@ -1,6 +1,16 @@
 pipeline{
     agent any
     stages{ 
+        stage("Verify tooling"){
+            steps{
+                sh '''
+                dockerd version
+                docker info
+                docker compose version
+                '''
+            }
+
+        }
         stage('Build Django docker  and Push to hub'){
             steps{
                 sh '''
