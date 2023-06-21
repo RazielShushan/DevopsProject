@@ -11,21 +11,25 @@ pipeline{
             }
 
         }
-        stage('Build Django docker  and Push to hub'){
+        stage("Prune Docker data"){
             steps{
                 sh '''
-                chmod +x docker-compose.sh
-                ./docker-compose.sh
+                'docker system prune -a --volumes -f'
                 '''
             }
         }
-        /** stage('Setup Python Virtual ENV'){
-        steps {
-            sh '''
-            chmod +x envsetup.sh
-            ./envsetup.sh
-            '''}
+        stage("start container"){
+            steps{
+                sh 'docker compose up -d --no-color --wait'
+            }
         }
+        /** stage('Setup Python Virtual ENV'){
+            steps {
+                sh '''
+                chmod +x envsetup.sh
+                ./envsetup.sh
+                '''}
+            }   
         stage('Setup Gunicorn Setup'){
             steps{
             sh '''
