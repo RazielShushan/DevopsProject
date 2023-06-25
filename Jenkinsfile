@@ -23,7 +23,7 @@ pipeline{
                     debug = $DEBUG
                     superuserUsername = $JANGO_SUPERUSER_USERNAME
                     superuserPassword = $DJANGO_SUPERUSER_PASSWORD
-                    superuserEmail = #DJANGO_SUPERUSER_EMAIL
+                    superuserEmail = $DJANGO_SUPERUSER_EMAIL
                     secretKey = $DJANGO_SECRET_KEY
                     mysqlReady = $MYSQL_READY
                     mysqlDatabase = $MYSQL_DATABASE
