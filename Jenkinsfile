@@ -56,7 +56,6 @@ pipeline{
             steps{
                     sh '''
                     docker-compose up -d --no-color --build
-                    docker-compose push
                     '''
             }
         }
