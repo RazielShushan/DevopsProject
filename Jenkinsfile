@@ -13,6 +13,7 @@ pipeline{
         mysqlHost = $MYSQL_HOST
         mysqlPort = $MYSQL_PORT
         mysqlRootPassword = $MYSQL_ROOT_PASSWORD
+        my = "d"
     }
     stages{ 
         stage("Verify tooling"){
