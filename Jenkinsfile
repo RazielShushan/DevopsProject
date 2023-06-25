@@ -7,7 +7,7 @@ pipeline{
                 docker version
                 docker info
                 docker compose version
-                kubectl version --clinet
+                kubectl version --client
                 '''
             }
 
