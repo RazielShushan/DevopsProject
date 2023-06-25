@@ -38,7 +38,7 @@ DEBUG = False
 DEBUG = str(os.environ.get('DEBUG')) == "1"
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 # Application definition
 
 INSTALLED_APPS = [
@@ -95,7 +95,6 @@ WSGI_APPLICATION = 'communication_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'communication_system',
     }
 }
 
