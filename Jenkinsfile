@@ -21,25 +21,39 @@ pipeline{
             steps{
                  script {
                     // Set environment variables
-                    def envFile = "env/.env"
-                    def envContent = "DEBUG=${credentials('DEBUG')}\n" +
-                                     "DJANGO_SUPERUSER_USERNAME=${credentials('DJANGO_SUPERUSER_USERNAME')}\n" +
-                                     "DJANGO_SUPERUSER_PASSWORD=${credentials('DJANGO_SUPERUSER_PASSWORD')}\n" +
-                                     "DJANGO_SUPERUSER_EMAIL=${credentials('DJANGO_SUPERUSER_EMAIL')}\n" +
-                                     "DJANGO_SECRET_KEY=${credentials('DJANGO_SECRET_KEY')}\n" +
-                                     "MYSQL_READY=${credentials('MYSQL_READY')}\n" +
-                                     "MYSQL_DATABASE=${credentials('MYSQL_DATABASE')}\n" +
-                                     "MYSQL_PASSWORD=${credentials('MYSQL_PASSWORD')}\n" +
-                                     "MYSQL_USER=${credentials('MYSQL_USER')}\n" +
-                                     "MYSQL_HOST=${credentials('MYSQL_HOST')}\n" +
-                                     "MYSQL_PORT=${credentials('MYSQL_PORT')}\n" +
-                                     "MYSQL_ROOT_PASSWORD=${credentials('MYSQL_ROOT_PASSWORD')}\n"
+                    def envFile = "web/.env"
+                    // Retrieve credentials
+                    def debug = credentials('DEBUG')
+                    def superuserUsername = credentials('DJANGO_SUPERUSER_USERNAME')
+                    def superuserPassword = credentials('DJANGO_SUPERUSER_PASSWORD')
+                    def superuserEmail = credentials('DJANGO_SUPERUSER_EMAIL')
+                    def secretKey = credentials('DJANGO_SECRET_KEY')
+                    def mysqlReady = credentials('MYSQL_READY')
+                    def mysqlDatabase = credentials('MYSQL_DATABASE')
+                    def mysqlPassword = credentials('MYSQL_PASSWORD')
+                    def mysqlUser = credentials('MYSQL_USER')
+                    def mysqlHost = credentials('MYSQL_HOST')
+                    def mysqlPort = credentials('MYSQL_PORT')
+                    def mysqlRootPassword = credentials('MYSQL_ROOT_PASSWORD')
                     
+                    // Build the environment variables content
+                    def envContent = "DEBUG=${debug}\n" +
+                                     "DJANGO_SUPERUSER_USERNAME=${superuserUsername}\n" +
+                                     "DJANGO_SUPERUSER_PASSWORD=${superuserPassword}\n" +
+                                     "DJANGO_SUPERUSER_EMAIL=${superuserEmail}\n" +
+                                     "DJANGO_SECRET_KEY=${secretKey}\n" +
+                                     "MYSQL_READY=${mysqlReady}\n" +
+                                     "MYSQL_DATABASE=${mysqlDatabase}\n" +
+                                     "MYSQL_PASSWORD=${mysqlPassword}\n" +
+                                     "MYSQL_USER=${mysqlUser}\n" +
+                                     "MYSQL_HOST=${mysqlHost}\n" +
+                                     "MYSQL_PORT=${mysqlPort}\n" +
+                                     "MYSQL_ROOT_PASSWORD=${mysqlRootPassword}\n"
                     // Write the environment variables to .env file
                     sh "echo '''${envContent}''' > ${envFile}"
                 }
             }
-        }
+        }   
         stage("Build images and push to docker-hub"){
             steps{
                     sh '''
