@@ -2,18 +2,17 @@ pipeline{
     agent any
     environment {
         debug = $DEBUG
-        superuserUsername = $JANGO_SUPERUSER_USERNAME
-        superuserPassword = $DJANGO_SUPERUSER_PASSWORD
-        superuserEmail = $DJANGO_SUPERUSER_EMAIL
-        secretKey = $DJANGO_SECRET_KEY
-        mysqlReady = $MYSQL_READY
-        mysqlDatabase = $MYSQL_DATABASE
-        mysqlPassword = $MYSQL_PASSWORD
-        mysqlUser = $MYSQL_USER
-        mysqlHost = $MYSQL_HOST
-        mysqlPort = $MYSQL_PORT
-        mysqlRootPassword = $MYSQL_ROOT_PASSWORD
-        my = "d"
+        superuserUsername = "$JANGO_SUPERUSER_USERNAME"
+        superuserPassword = "$DJANGO_SUPERUSER_PASSWORD"
+        superuserEmail = "$DJANGO_SUPERUSER_EMAIL"
+        secretKey = "$DJANGO_SECRET_KEY"
+        mysqlReady = "$MYSQL_READY"
+        mysqlDatabase = "$MYSQL_DATABASE"
+        mysqlPassword = "$MYSQL_PASSWORD"
+        mysqlUser = "$MYSQL_USER"
+        mysqlHost = "$MYSQL_HOST"
+        mysqlPort = "$MYSQL_PORT"
+        mysqlRootPassword = "$MYSQL_ROOT_PASSWORD"
     }
     stages{ 
         stage("Verify tooling"){
