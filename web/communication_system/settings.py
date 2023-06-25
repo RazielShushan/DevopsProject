@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'communication_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
+        'ENGINE': 'django.db.backends.mysql',
     }
 }
 
