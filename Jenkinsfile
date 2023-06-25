@@ -20,20 +20,23 @@ pipeline{
         stage("Create .env file"){
             steps{
                  script {
-                    // Set environment variables 
-                    env.IMAGE_TAG = "latest"
-                    env.DEBUG = credentials('DEBUG')
-                    env.DJANGO_SUPERUSER_USERNAME = credentials('DJANGO_SUPERUSER_USERNAME')
-                    env.DJANGO_SUPERUSER_PASSWORD = credentials('DJANGO_SUPERUSER_PASSWORD')
-                    env.DJANGO_SUPERUSER_EMAIL = credentials('DJANGO_SUPERUSER_EMAIL')
-                    env.DJANGO_SECRET_KEY = credentials('DJANGO_SECRET_KEY')
-                    env.MYSQL_READY = credentials('MYSQL_READY')
-                    env.MYSQL_DATABASE = credentials('MYSQL_DATABASE')
-                    env.MYSQL_PASSWORD = credentials('MYSQL_PASSWORD')
-                    env.MYSQL_USER = credentials('MYSQL_USER')
-                    env.MYSQL_HOST = credentials('MYSQL_HOST')
-                    env.MYSQL_PORT = credentials('MYSQL_PORT')
-                    env.MYSQL_ROOT_PASSWORD = credentials('MYSQL_ROOT_PASSWORD')
+                    // Set environment variables
+                    def envFile = ".env"
+                    def envContent = "DEBUG=${credentials('DEBUG')}\n" +
+                                     "DJANGO_SUPERUSER_USERNAME=${credentials('DJANGO_SUPERUSER_USERNAME')}\n" +
+                                     "DJANGO_SUPERUSER_PASSWORD=${credentials('DJANGO_SUPERUSER_PASSWORD')}\n" +
+                                     "DJANGO_SUPERUSER_EMAIL=${credentials('DJANGO_SUPERUSER_EMAIL')}\n" +
+                                     "DJANGO_SECRET_KEY=${credentials('DJANGO_SECRET_KEY')}\n" +
+                                     "MYSQL_READY=${credentials('MYSQL_READY')}\n" +
+                                     "MYSQL_DATABASE=${credentials('MYSQL_DATABASE')}\n" +
+                                     "MYSQL_PASSWORD=${credentials('MYSQL_PASSWORD')}\n" +
+                                     "MYSQL_USER=${credentials('MYSQL_USER')}\n" +
+                                     "MYSQL_HOST=${credentials('MYSQL_HOST')}\n" +
+                                     "MYSQL_PORT=${credentials('MYSQL_PORT')}\n" +
+                                     "MYSQL_ROOT_PASSWORD=${credentials('MYSQL_ROOT_PASSWORD')}\n"
+                    
+                    // Write the environment variables to .env file
+                    sh "echo '''${envContent}''' > ${envFile}"
                 }
             }
         }
