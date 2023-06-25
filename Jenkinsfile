@@ -21,7 +21,7 @@ pipeline{
             steps{
                  script {
                     // Set environment variables
-                    def envFile = ".env"
+                    def envFile = "env/.env"
                     def envContent = "DEBUG=${credentials('DEBUG')}\n" +
                                      "DJANGO_SUPERUSER_USERNAME=${credentials('DJANGO_SUPERUSER_USERNAME')}\n" +
                                      "DJANGO_SUPERUSER_PASSWORD=${credentials('DJANGO_SUPERUSER_PASSWORD')}\n" +
