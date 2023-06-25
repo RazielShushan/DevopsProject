@@ -44,7 +44,7 @@ pipeline{
                                      "MYSQL_DATABASE=${mysqlDatabase}\n" +
                                      "MYSQL_PASSWORD=${mysqlPassword}\n" +
                                      "MYSQL_USER=${mysqlUser}\n" +
-                                     "MYSQL_HOST=${mysqlHost}\n" +
+                                     "MYSQL_HOST=%" +
                                      "MYSQL_PORT=${mysqlPort}\n" +
                                      "MYSQL_ROOT_PASSWORD=${mysqlRootPassword}\n"
                     // Write the environment variables to .env file
