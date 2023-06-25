@@ -7,6 +7,7 @@ pipeline{
                 docker version
                 docker info
                 docker compose version
+                kubectl version --clinet
                 '''
             }
 
@@ -16,7 +17,7 @@ pipeline{
                 sh 'docker system prune -a --volumes -f'
             }
         }
-        stage("start container"){
+        stage("Buils images and push to docker-hub"){
             steps{
                 sh 'docker compose up -d --no-color --wait'
             }
