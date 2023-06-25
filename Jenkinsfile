@@ -1,19 +1,5 @@
 pipeline{
     agent any
-    environment {
-        debug = credentials('DEBUG')
-        superuserUsername = credentials('DJANGO_SUPERUSER_USERNAME')
-        superuserPassword = credentials('DJANGO_SUPERUSER_PASSWORD')
-        superuserEmail = credentials('DJANGO_SUPERUSER_EMAIL')
-        secretKey = credentials('DJANGO_SECRET_KEY')
-        mysqlReady = credentials('MYSQL_READY')
-        mysqlDatabase = credentials('MYSQL_DATABASE')
-        mysqlPassword = credentials('MYSQL_PASSWORD')
-        mysqlUser = credentials('MYSQL_USER')
-        mysqlHost = credentials('MYSQL_HOST')
-        mysqlPort = credentials('MYSQL_PORT')
-        mysqlRootPassword = credentials('MYSQL_ROOT_PASSWORD')
-    }
     stages{ 
         stage("Verify tooling"){
             steps{
@@ -34,6 +20,18 @@ pipeline{
         stage("Create .env file"){
             steps{
                  script {
+                    debug = $DEBUG
+                    superuserUsername = $JANGO_SUPERUSER_USERNAME
+                    superuserPassword = $DJANGO_SUPERUSER_PASSWORD
+                    superuserEmail = #DJANGO_SUPERUSER_EMAIL
+                    secretKey = $DJANGO_SECRET_KEY
+                    mysqlReady = $MYSQL_READY
+                    mysqlDatabase = $MYSQL_DATABASE
+                    mysqlPassword = $MYSQL_PASSWORD
+                    mysqlUser = $MYSQL_USER
+                    mysqlHost = $MYSQL_HOST
+                    mysqlPort = $MYSQL_PORT
+                    mysqlRootPassword = $MYSQL_ROOT_PASSWORD
                     def envFile = "web/.env"
                     def envContent = "DEBUG=${debug}\n" +
                                      "DJANGO_SUPERUSER_USERNAME=${superuserUsername}\n" +
