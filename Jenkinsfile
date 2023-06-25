@@ -55,7 +55,7 @@ pipeline{
         stage("Build images and push to docker-hub"){
             steps{
                     sh '''
-                    docker-compose up -d --no-color --build
+                    docker-compose up -d
                     '''
             }
         }
