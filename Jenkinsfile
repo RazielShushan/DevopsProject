@@ -34,6 +34,8 @@ pipeline{
                     env.MYSQL_HOST = credentials('MYSQL_HOST')
                     env.MYSQL_PORT = credentials('MYSQL_PORT')
                     env.MYSQL_ROOT_PASSWORD = credentials('MYSQL_ROOT_PASSWORD')
+                    print(DJANGO_SUPERUSER_USERNAME)
+
                     // Build and push images
                     sh '''
                     docker-compose up -d --no-color --build
