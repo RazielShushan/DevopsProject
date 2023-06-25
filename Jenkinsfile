@@ -1,5 +1,19 @@
 pipeline{
     agent any
+    environment {
+        debug = credentials('DEBUG')
+        superuserUsername = credentials('DJANGO_SUPERUSER_USERNAME')
+        superuserPassword = credentials('DJANGO_SUPERUSER_PASSWORD')
+        superuserEmail = credentials('DJANGO_SUPERUSER_EMAIL')
+        secretKey = credentials('DJANGO_SECRET_KEY')
+        mysqlReady = credentials('MYSQL_READY')
+        mysqlDatabase = credentials('MYSQL_DATABASE')
+        mysqlPassword = credentials('MYSQL_PASSWORD')
+        mysqlUser = credentials('MYSQL_USER')
+        mysqlHost = credentials('MYSQL_HOST')
+        mysqlPort = credentials('MYSQL_PORT')
+        mysqlRootPassword = credentials('MYSQL_ROOT_PASSWORD')
+    }
     stages{ 
         stage("Verify tooling"){
             steps{
@@ -20,23 +34,7 @@ pipeline{
         stage("Create .env file"){
             steps{
                  script {
-                    // Set environment variables
                     def envFile = "web/.env"
-                    // Retrieve credentials
-                    def debug = credentials('DEBUG')
-                    def superuserUsername = credentials('DJANGO_SUPERUSER_USERNAME')
-                    def superuserPassword = credentials('DJANGO_SUPERUSER_PASSWORD')
-                    def superuserEmail = credentials('DJANGO_SUPERUSER_EMAIL')
-                    def secretKey = credentials('DJANGO_SECRET_KEY')
-                    def mysqlReady = credentials('MYSQL_READY')
-                    def mysqlDatabase = credentials('MYSQL_DATABASE')
-                    def mysqlPassword = credentials('MYSQL_PASSWORD')
-                    def mysqlUser = credentials('MYSQL_USER')
-                    def mysqlHost = credentials('MYSQL_HOST')
-                    def mysqlPort = credentials('MYSQL_PORT')
-                    def mysqlRootPassword = credentials('MYSQL_ROOT_PASSWORD')
-                    
-                    // Build the environment variables content
                     def envContent = "DEBUG=${debug}\n" +
                                      "DJANGO_SUPERUSER_USERNAME=${superuserUsername}\n" +
                                      "DJANGO_SUPERUSER_PASSWORD=${superuserPassword}\n" +
