@@ -17,7 +17,7 @@ pipeline{
                 sh 'docker system prune -a --volumes -f'
             }
         }
-        stage("Buils images and push to docker-hub"){
+        stage("Create .env file"){
             steps{
                  script {
                     // Set environment variables 
@@ -34,14 +34,15 @@ pipeline{
                     env.MYSQL_HOST = credentials('MYSQL_HOST')
                     env.MYSQL_PORT = credentials('MYSQL_PORT')
                     env.MYSQL_ROOT_PASSWORD = credentials('MYSQL_ROOT_PASSWORD')
-                    print(DJANGO_SUPERUSER_USERNAME)
-
-                    // Build and push images
+                }
+            }
+        }
+        stage("Build images and push to docker-hub"){
+            steps{
                     sh '''
                     docker-compose up -d --no-color --build
                     docker-compose push
                     '''
-                }
             }
         }
     }
