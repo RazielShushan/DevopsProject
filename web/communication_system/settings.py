@@ -64,6 +64,7 @@ MIDDLEWARE = [
 ]
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+
 ]
 
 ROOT_URLCONF = 'communication_system.urls'
@@ -95,6 +96,8 @@ WSGI_APPLICATION = 'communication_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'communication_system',
+
     }
 }
 
