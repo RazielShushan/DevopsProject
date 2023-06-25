@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        debug = $DEBUG
+        debug = "$DEBUG"
         superuserUsername = "$JANGO_SUPERUSER_USERNAME"
         superuserPassword = "$DJANGO_SUPERUSER_PASSWORD"
         superuserEmail = "$DJANGO_SUPERUSER_EMAIL"
