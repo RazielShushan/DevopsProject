@@ -12,7 +12,8 @@ services:
     env_file:
       - web/.env
     volumes:
-      - db_data:/var/lib/mysql
+      - ./mysqldata:/var/lib/mysql:rw,delegated
+      #- db_data:/var/lib/mysql
   web:
     depends_on:
       - db
