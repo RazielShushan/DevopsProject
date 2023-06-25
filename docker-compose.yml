@@ -5,8 +5,6 @@ services:
     image: mysql:latest
     ports:
       - "3307:3306"
-    environment:
-      - MYSQL_HOST=%
     env_file:
       - web/.env
     volumes:
