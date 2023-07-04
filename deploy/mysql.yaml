@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: django-mysql
+  spec:
+    selector:
+      matchLabels:
+        app: django
+        tier: mysql
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        lables:
+          app: django
+          tier: mysql
+      spec:
+        containers:
+          - image: mysql:ltest
+            name: mysql
+            ports:
+              - containerPort: 3307:3306
+                name: mysql
+            env:
+              - web/.env
