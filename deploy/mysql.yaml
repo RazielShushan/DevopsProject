@@ -21,7 +21,28 @@ metadata:
           - image: mysql:ltest
             name: mysql
             ports:
-              - containerPort: 3307:3306
+              - containerPort: 3306
                 name: mysql
             env:
-              - web/.env
+            - name: MYSQL_DATABASE
+              value: communication_system
+            - name: MYSQL_USER
+              value: devops
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-password
+                  key: password
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-password
+                  key: password
+
+MYSQL_READY=1
+MYSQL_DATABASE=communication_system
+MYSQL_PASSWORD=96544
+MYSQL_USER=devops
+MYSQL_HOST=db
+MYSQL_PORT=3306
+MYSQL_ROOT_PASSWORD=96544

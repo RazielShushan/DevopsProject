@@ -1,0 +1,6 @@
+secertGenerator:
+  - name: db-password
+    literals:
+      - password=96544
+resources:
+  - mysql.yaml
