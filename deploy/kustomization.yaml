@@ -1,4 +1,4 @@
-secertGenerator:
+secretGenerator:
   - name: db-password
     literals:
       - password=96544
