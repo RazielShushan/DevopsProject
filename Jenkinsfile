@@ -55,9 +55,9 @@ pipeline{
         stage("Build images on dcoker-hub"){
             steps{
                     sh '''
-                    cd .\web\ 
+                    cd ./web/ 
                     docker build --tag python-django .
-                    cd ..\proxy\
+                    cd ../proxy/
                     docker build --tag django-proxy .
                     '''
             }
