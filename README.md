@@ -44,5 +44,5 @@ This repository was created by the following programmers:
   
 ## DjangoApp Repository
 For this project, we used the following GitHub repository for the DjangoApp:
-- [DjangoApp Repository](https://github.com/orironen555).
+- [DjangoApp Repository](https://github.com/RazielShushan/DjangoLoginApp).
 
