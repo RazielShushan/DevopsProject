@@ -20,7 +20,7 @@ pipeline{
                 sh '''
                 docker version
                 docker info
-
+                minikube version
                 kubectl version --client
                 '''
             }
