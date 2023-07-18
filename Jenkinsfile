@@ -28,7 +28,7 @@ pipeline{
         }
         stage("Prune Docker data"){
             steps{
-                sh 'docker system prune -a --volumes -f'
+                //sh 'docker system prune -a --volumes -f'
             }
         }
         stage("Create .env file"){
