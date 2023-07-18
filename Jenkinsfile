@@ -67,8 +67,8 @@ pipeline{
             steps{
                     sh '''
                     minikube start
-                    minikube image load django-proxy:latest
                     minikube image load python-django:latest
+                    minikube image load django-proxy:latest
                     '''
             }
         }
