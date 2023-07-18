@@ -7,10 +7,10 @@ metadata:
 spec:
   ports:
     - port: 3306
-    selector:
-      app: django
-      tier: mysql
-    clusterOP: None
+  selector:
+    app: django
+    tier: mysql
+  clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -39,7 +39,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -65,14 +65,14 @@ spec:
           persistentVolumeClaim:
             claimName: django-mysql-pvc
       containers:
-        - image: mysql:5.6
+        - image: mysql:latest
           name: mysql
           ports:
             - containerPort: 3306
               name: mysql
           volumeMounts:
             - name: mysql-data
-              mountPath: /var/lib/mysql/data
+              mountPath: /var/lib/mysql
           env:
             - name: MYSQL_DATABASE
               value: communication_system

@@ -4,3 +4,4 @@ secretGenerator:
       - password=96544
 resources:
   - mysql.yaml
+  - django.yaml

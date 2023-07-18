@@ -20,7 +20,7 @@ pipeline{
                 sh '''
                 docker version
                 docker info
-                docker compose version
+
                 kubectl version --client
                 '''
             }
@@ -52,10 +52,28 @@ pipeline{
                 }
             }
         }   
-        stage("Build images and push to docker-hub"){
+        stage("Build images on dcoker-hub"){
             steps{
                     sh '''
-                    docker-compose up -d --no-color --build
+                    cd .\web\ 
+                    docker build --tag python-django .
+                    cd ..\proxy\
+                    docker build --tag django-proxy .
+                    '''
+            }
+        }
+        stage("Push images to minikube container"){
+            steps{
+                    sh '''
+                    minikube image load django-proxy:latest
+                    minikube image load python-django:latest
+                    '''
+            }
+        }
+        stage("Deploy k8s pods"){
+            steps{
+                    sh '''
+                    kubectl apply -k deploy/
                     '''
             }
         }
