@@ -1,5 +1,4 @@
 FROM python:latest
-RUN chmod -R +x /scripts
 COPY . /app
 WORKDIR /app
 
