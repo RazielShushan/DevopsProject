@@ -66,7 +66,7 @@ pipeline{
         stage("Push images to minikube container"){
             steps{
                     sh '''
-                    minikube start
+                    minikube start --driver=docker
                     minikube image load python-django:latest
                     minikube image load django-proxy:latest
                     '''
