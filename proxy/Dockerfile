@@ -6,7 +6,7 @@ COPY ./headers.conf /etc/nginx/headers.conf
 COPY ./run.sh /run.sh
 
 ENV LISTEN_PORT=8000
-ENV APP_HOST=django
+ENV APP_HOST=app
 ENV APP_PORT=8001
 
 USER root
