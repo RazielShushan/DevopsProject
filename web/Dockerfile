@@ -9,4 +9,6 @@ RUN /opt/venv/bin/pip install pip --upgrade && \
     /opt/venv/bin/pip install -r requirements.txt && \
     chmod +x ./scripts/run.sh
 
+EXPOSE 8000
+
 CMD ["./scripts/run.sh"]

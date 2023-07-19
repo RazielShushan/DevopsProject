@@ -76,6 +76,7 @@ pipeline{
             steps{
                     sh '''
                     kubectl apply -k deploy/
+                    minikube service django
                     '''
             }
         }
