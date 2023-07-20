@@ -38,7 +38,7 @@ Ensure that the following applications are installed on your Ubuntu machine befo
 ## Project members
 This repository was created by the following programmers:
 - [Raziel Shushan](https://github.com/RazielShushan).
-- [Matan Alter](https://github.com/matan_alter).
+- [Matan Alter](https://github.com/Matanyhao).
 - [Alice Motzlov](https://github.com/alice_motzlov).
 - [Ori Ronen](https://github.com/orironen555).
   
