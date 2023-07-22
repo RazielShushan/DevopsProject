@@ -1,4 +1,6 @@
 FROM python:latest
+COPY ./scripts /scripts
+RUN chmod -R +x /scripts
 COPY . /app
 WORKDIR /app
 
@@ -9,4 +11,4 @@ RUN /opt/venv/bin/pip install pip --upgrade && \
 
 EXPOSE 80
 
-CMD ["/scripts/run.sh"]
+CMD ["/app/scripts/run.sh"]
