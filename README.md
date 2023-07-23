@@ -39,7 +39,7 @@ Ensure that the following applications are installed on your Ubuntu machine befo
 This repository was created by the following programmers:
 - [Raziel Shushan](https://github.com/RazielShushan).
 - [Matan Alter](https://github.com/Matanyhao).
-- [Alice Motzlov](https://github.com/alice_motzlov).
+- [Alissa Mochalov](https://github.com/alice_motzlov).
 - [Ori Ronen](https://github.com/orironen555).
   
 ## DjangoApp Repository
